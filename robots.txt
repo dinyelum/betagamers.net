@@ -1,0 +1,8 @@
+Sitemap: https://betagamers.net/sitemap.xml
+User-agent:*
+Disallow: /folder/
+Disallow: /requests/
+Disallow: /misc/
+Disallow: /old/
+Disallow: /notes.php
+Disallow: /test.php

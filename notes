@@ -1,0 +1,37 @@
+//add football betting tips to homepage
+
+json_encode converts array to string, json_decode converts string to object (accessible in any form, as array or string), read more: https://stackoverflow.com/questions/29308898/how-to-extract-and-access-data-from-json-with-php
+
+To access json decode as array (dimensional), use json_decode true, eg: json_decode($a,true).
+
+$_SERVER, print_r($_SERVER,true) prints server headers
+getallheaders(), prints headers also
+and can be accessed as normal associative array
+
+$input = json_decode(@file_get_contents("php://input"), true);
+$input1 = print_r($input,true);
+
+file_put_contents(time(), $input1); prints the array to file neatly but to access / work with the contents, you CANNOT say $input1[''], BUT $input['']
+
+*For objects with weird names, access them as so: $myobject->{'myweird-name'};
+
+
+m-gurush south sudan
+fb app, homepage, bundesliga
+
+
+foreach (['./table/others/form.php', './table/others/free.php', './table/others/freeyes.php', './table/others/recent.php', './table/others/popular.php', './table/others/upcoming.php','./table/others/za.php'] as $filename) {include './incs/malcheck.php';}
+
+
+The IP whitelisting feature is meant to specify the IP address(es) that are expected to make API calls from your account. To enable this feature, you would simply need to:
+Log into your Flutterwave Dashboard
+Click on Settings
+Click on Whitelisted IP addresses.
+Click on the “Add IP Address” button.
+Set the IP Address that you would like to whitelist. This only would grant access to API requests made from the IP Address(es) that you have added.
+Provide a form of 2FA to authorize the change.
+For some cases where your site hosting platform implements a dynamic IP system, we understand that you would be unable to simply specify an IP address for making API requests (because the address changes). In that scenario, you can do one of the following:
+If your platform allows you to expose a public IP address, you can expose it and pass it as the IP address to be whitelisted.
+It is also possible to temporarily pass 0.0.0.0 as the IP address to be whitelisted. NOTE: Specifying this as the whitelisted IP address would disable IP whitelisting for your account, and would effectively allow API calls to be made from ANY IP address.
+
+The idea is that if you choose to specify a list of IP addresses to whitelist, even if someone has your secret keys, they cannot make a request from an IP address that is not among the list of IP addresses that you have authorized

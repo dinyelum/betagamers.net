@@ -1,0 +1,17 @@
+*error_log
+*.env
+*.log
+uploads/
+images/
+temp/
+tmp/
+cgi-bin/
+.well-known/
+blog/
+nc_assets/
+misc/
+recs/
+pn_cb/
+pn_pal/
+pn_flw/
+pn_psk/

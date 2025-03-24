@@ -1,0 +1,45 @@
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTP_HOST} ^betagamers\.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.betagamers\.net$
+RewriteRule ^(.*)$ https://betagamers.net/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} www.betagamers.net
+RewriteRule (.*) https://betagamers.net/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+
+#Header set X-Frame-Options "ALLOW-FROM https://whatismyscreenresolution.net/"
+
+Redirect 301 "/livescore" "/livescores"
+Redirect 301 "/payments/webhookcb.php" "/webhooks/webhookcb"
+Redirect 301 "/payments/webhookcb_all.php" "/webhooks/webhookcb_all"
+
+RedirectMatch 403 ^/misc/.*$
+
+ErrorDocument 404 /404.php
+ErrorDocument 502 /502.shtml
+ErrorDocument 504 /504.shtml
+ErrorDocument 508 /508.shtml
+
+<Files ~ "\.env$">  
+Order Allow,Deny
+Deny from All
+</Files>
+
+<Files .htaccess>
+Order allow,deny
+Deny from All
+</Files>
+
+Options -Indexes
+
+<filesMatch ".(jpg|jpeg|png|gif|ico|webp)$">
+Header set Cache-Control "max-age=2592000, public"
+</filesMatch>
+
+<filesMatch ".(css|js)$">
+Header set Cache-Control "max-age=60, public"
+</filesMatch>
