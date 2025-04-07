@@ -5,7 +5,7 @@ uploads/
 images/
 temp/
 tmp/
-test/
+tests/
 cgi-bin/
 .well-known/
 blog/
