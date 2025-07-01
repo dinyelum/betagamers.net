@@ -17,6 +17,13 @@ if(typeof pSwitches != 'undefined') {
        });
     });
 }
+var t = document.querySelectorAll("input.sign");
+var s = document.querySelectorAll("input[name='signature']");
+for(let i=0; i<s.length; i++) {
+    t[i].addEventListener('input', function(){
+        s[i].value = st;
+    });
+}
 var input = input ?? document.querySelector("#phone");
 window.intlTelInput(input, {
     autoHideDialCode: false,
