@@ -1,0 +1,5 @@
+*error_log
+*.env
+*.log
+league_ranks_exceptions.txt
+__pycache__/
