@@ -6,10 +6,6 @@ import json
 from pathlib import Path
 import config
 
-file_path = Path("my_file.txt")
-print(file_path)
-sys.exit()
-
 with mysql.connector.connect(host=config.DB_HOST, user=config.DB_USER, password=config.DB_PASS, database=config.DB_NAME) as conn:
     try:
         cursor = conn.cursor()

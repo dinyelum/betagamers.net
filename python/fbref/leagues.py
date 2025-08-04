@@ -3,7 +3,10 @@ import time
 import requests
 import mysql.connector
 import config
+import countries
 
+countries.update_countries()
+time.sleep(10)
 with mysql.connector.connect(host=config.DB_HOST, user=config.DB_USER, password=config.DB_PASS, database=config.DB_NAME) as conn:
     try:
         cursor = conn.cursor()
@@ -24,6 +27,17 @@ for country in dbdata:
         response = requests.get(url=url, params=params,
                                 headers=headers, timeout=120)
         response_json = response.json()
+        retry = 0
+        while response.status_code == 500 and retry <= 20:
+            time.sleep(900)
+            try:
+                response = requests.get(url=url, params=params,
+                                        headers=headers, timeout=120)
+            except requests.exceptions.RequestException as rError:
+                print(f"Request Error: {rError}")
+        if retry > 20:
+            print(f"FBref returned a 500 error in over 20 consecutive retries at 15-minute intervals, totaling 5 hours of attempts. No further retries will be made.")
+            break
         if response.status_code == 200:
             leaguedata.extend(
                 [(subitem['competition_name'],
@@ -49,12 +63,20 @@ if len(leaguedata):
     with mysql.connector.connect(host=config.DB_HOST, user=config.DB_USER, password=config.DB_PASS, database=config.DB_NAME) as conn:
         try:
             cursor = conn.cursor()
+            insert_query = """
+                Insert into fbref_leagues (league, fbref_leagueid, gender, tier, country, first_season, last_season) values (%s, %s, %s, %s, %s, %s, %s)
+                ON DUPLICATE KEY UPDATE
+                league = VALUES(league),
+                gender = VALUES(gender),
+                tier = VALUES(tier),
+                country = VALUES(country),
+                first_season = VALUES(first_season),
+                last_season = VALUES(last_season)
+            """
             if len(leaguedata) > 1:
-                cursor.executemany(
-                    "Insert into fbref_leagues (league, fbref_leagueid, gender, tier, country, first_season, last_season) values (%s, %s, %s, %s, %s, %s, %s)", leaguedata)
+                cursor.executemany(insert_query, leaguedata)
             else:
-                cursor.execute(
-                    "Insert into fbref_leagues (league, fbref_leagueid, gender, tier, country, first_season, last_season) values (%s, %s, %s, %s, %s, %s, %s)", leaguedata)
+                cursor.execute(insert_query, leaguedata)
             conn.commit()
             print('Successful')
         except mysql.connector.Error as e:
