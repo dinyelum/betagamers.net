@@ -64,12 +64,12 @@ if len(leaguedata):
         try:
             cursor = conn.cursor()
             insert_query = """
-                Insert into fbref_leagues (league, fbref_leagueid, gender, tier, country, first_season, last_season) values (%s, %s, %s, %s, %s, %s, %s)
+                Insert into fbref_leagues (league, fbref_leagueid, gender, tier, iso3, first_season, last_season) values (%s, %s, %s, %s, %s, %s, %s)
                 ON DUPLICATE KEY UPDATE
                 league = VALUES(league),
                 gender = VALUES(gender),
                 tier = VALUES(tier),
-                country = VALUES(country),
+                iso3 = VALUES(iso3),
                 first_season = VALUES(first_season),
                 last_season = VALUES(last_season)
             """
