@@ -1,6 +1,8 @@
 *error_log
 *.env
 *.log
+cron.txt
+sitemap.xml
 uploads/
 images/
 temp/
