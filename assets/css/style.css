@@ -439,6 +439,13 @@ img {
   text-align: justify;
 }
 
+.homepagewriteup {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: justify;
+}
+
 .sidenav {
   height: 100%;
   width: 100%;
@@ -952,6 +959,10 @@ table tr:nth-child(even) {
     text-align: center;
     margin-top: 10px;
   }
+}
+
+.disclaimer p {
+  margin: 1px;
 }
 
 @media screen and (max-width: 400px) {
