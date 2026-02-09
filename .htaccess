@@ -2,6 +2,8 @@
 ### AutoSSL-Satellite Don't Edit Below This Line ###
 <IfModule mod_rewrite.c>
 	RewriteEngine On
+	# Skip HTTPS redirect on localhost
+    RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)$ [NC]
 	# Force HTTPS
 	RewriteCond %{HTTPS} off
 	RewriteCond %{HTTP:X-Forwarded-SSL} !on
@@ -18,7 +20,7 @@ RewriteCond %{HTTP_HOST} ^(www|mail)\.betagamers\.net$ [NC]
 RewriteRule ^(.*)$ https://betagamers.net/$1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA,B]
 #Header set X-Frame-Options "ALLOW-FROM https://whatismyscreenresolution.net/"
 Redirect 301 "/livescore" "/livescores"
 Redirect 301 "/payments/webhookcb.php" "/webhooks/webhookcb"
