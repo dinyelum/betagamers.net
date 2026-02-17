@@ -7,6 +7,8 @@ name = "pypi"
 requests = "*"
 mysql-connector-python = "*"
 python-dotenv = "*"
+python-telegram-bot = "*"
+apscheduler = "*"
 
 [dev-packages]
 
