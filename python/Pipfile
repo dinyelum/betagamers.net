@@ -9,6 +9,7 @@ mysql-connector-python = "*"
 python-dotenv = "*"
 python-telegram-bot = "*"
 apscheduler = "*"
+my-shared-utils = {ref = "v1.3.1", git = "https://github.com/dinyelum/my-shared-utils.git"}
 
 [dev-packages]
 
