@@ -4,16 +4,12 @@ import mysql.connector
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
+DB_NAME = os.getenv("DB_NAME")
+DB_USER = os.getenv("DB_USER")
+DB_PASS = os.getenv("DB_PASS")
+DB_HOST = os.getenv("DB_HOST")
 if IS_DEV:
-    DB_NAME = os.getenv("DB_NAME")
-    DB_USER = os.getenv("DB_USER")
-    DB_PASS = os.getenv("DB_PASS")
     DB_HOST = "127.0.0.1"
-if IS_PROD:
-    DB_NAME = os.getenv("BG_NAME")
-    DB_USER = os.getenv("BG_USER")
-    DB_PASS = os.getenv("BG_PASS")
-    DB_HOST = os.getenv("BG_HOST")
 
 
 def connector_factory():
