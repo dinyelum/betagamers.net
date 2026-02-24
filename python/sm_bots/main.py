@@ -20,7 +20,8 @@ async def main():
 
     telegram = TelegramClient(config.TOKEN)
     file_repo = PredictionFileRepository(Path(config.BG_INCS))
-    dtm = DatabaseTransactionManager(config=config, table='message_ids')
+    dtm = DatabaseTransactionManager(
+        connector_factory=config.connector_factory, table='message_ids')
     message_repo = MessageRepository(dtm)
 
     post_uc = PostPredictions(
