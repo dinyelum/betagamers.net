@@ -22,6 +22,10 @@ class PredictionStatusEvaluator:
 
         statuses = [m.status for m in matches]
 
+        # # unfinished match
+        # if 0 in statuses:
+        #     return True
+
         # no actual status
         if all(status == "" for status in statuses):
             return True
@@ -30,4 +34,4 @@ class PredictionStatusEvaluator:
 
     @staticmethod
     def has_win(matches):
-        return any(int(m.status) == 1 for m in matches)
+        return any(str(m.status) == '1' for m in matches)
