@@ -23,7 +23,7 @@ class CheckPredictions:
             if PredictionStatusEvaluator.should_skip(matches):
                 continue
 
-            if PredictionStatusEvaluator.has_win(matches):
+            if PredictionStatusEvaluator.has_win(matches) and not PredictionStatusEvaluator.has_loss(matches):
 
                 await self.telegram.reply(
                     self.channels[lang],

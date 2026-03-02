@@ -35,3 +35,7 @@ class PredictionStatusEvaluator:
     @staticmethod
     def has_win(matches):
         return any(str(m.status) == '1' for m in matches)
+
+    @staticmethod
+    def has_loss(matches):
+        return any(str(m.status) == '0' for m in matches)
