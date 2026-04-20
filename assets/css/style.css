@@ -1296,3 +1296,206 @@ iframe {
 .plan-btn.primary:hover {
   background: #388E3C;
 }
+
+/* ── Last updated line ── */
+.last-updated {
+  font-size: 13px;
+  color: #555555;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+/* ── Intro paragraph ── */
+.intro-text {
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+/* ── Section title with green left bar ── */
+.section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111111;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 14px;
+  background: #4caf50;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── Predictions table ── */
+.predictions-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 28px;
+  font-size: 13px;
+}
+
+.predictions-table thead th {
+  background: #f5f5f5;
+  font-weight: 700;
+  font-size: 12px;
+  color: #333333;
+  padding: 9px 10px;
+  border: 1px solid #dddddd;
+  text-align: center;
+}
+
+.predictions-table thead th:first-child {
+  text-align: left;
+}
+
+.predictions-table .round-row td {
+  background: #f9f9f9;
+  font-weight: 700;
+  font-size: 12px;
+  color: #555555;
+  text-align: center;
+  padding: 8px 10px;
+  border: 1px solid #dddddd;
+}
+
+.predictions-table tbody td {
+  padding: 10px;
+  border: 1px solid #dddddd;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.predictions-table tbody td:first-child {
+  text-align: left;
+}
+
+.predictions-table tbody tr:hover {
+  background: #f9fff9;
+}
+
+/* Team names inside first column */
+.team-home {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111111;
+  display: block;
+}
+
+.team-away {
+  font-size: 12px;
+  color: #555555;
+  display: block;
+}
+
+.match-date {
+  font-size: 11px;
+  color: #999999;
+  display: block;
+  margin-top: 2px;
+}
+
+/* ── Form dots ── */
+.form-dots {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+}
+
+.dots-row {
+  display: flex;
+  gap: 3px;
+}
+
+/* ── Confidence bar ── */
+.conf-cell {
+  min-width: 80px;
+}
+
+.conf-pct {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333333;
+  text-align: right;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.conf-track {
+  height: 5px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.conf-fill {
+  height: 5px;
+  border-radius: 3px;
+  background: #4caf50;
+  /* default: green */
+}
+
+.conf-fill.medium {
+  background: #ff9800;
+  /* amber: 57–74% */
+}
+
+/* ── Quick guide box ── */
+.guide-box {
+  background: #f9fff9;
+  border: 1px solid #c8e6c9;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+}
+
+.guide-box .guide-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2e7d32;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 8px;
+}
+
+.guide-items {
+  /* display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px; */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guide-items li {
+  font-size: 12px;
+  color: #444444;
+}
+
+/* ── Methodology tags ── */
+.method-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.method-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
