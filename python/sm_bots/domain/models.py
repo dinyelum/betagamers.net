@@ -17,3 +17,9 @@ class Match:
 class PredictionSection:
     section_id: str
     matches: List[Match]
+
+
+@dataclass
+class FeaturedSection:
+    section_id: str
+    link: str

@@ -21,3 +21,17 @@ BG_ROOT = Path.home()
 if IS_DEV:
     BG_ROOT = Path(f"C:/xampp/htdocs")
 BG_INCS = Path(f"{BG_ROOT}/app/betagamers/incs")
+BG_DOMAINS = {
+    'en': 'https://betagamers.net',
+    'fr': 'https://fr.betagamers.net',
+    'es': 'https://es.betagamers.net',
+    'pt': 'https://pt.betagamers.net',
+    'de': 'https://de.betagamers.net'
+}
+
+
+def controller_translations(controller):
+    list = {
+        'free_predictions': {'en': 'free_predictions', 'fr': 'pronostics_gratuits', 'es': 'pronosticosgratis', 'pt': 'dicas_gratis', 'de': 'kostenlos_prognose'}
+    }
+    return list if controller == 'all' else list[controller]

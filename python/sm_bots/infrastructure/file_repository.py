@@ -1,9 +1,11 @@
 """
 Handles filesystem only.
 """
+from sm_bots import config as c
 import json
+from itertools import islice
 from pathlib import Path
-from sm_bots.domain.models import Match, PredictionSection
+from sm_bots.domain.models import Match, PredictionSection, FeaturedSection
 
 
 class PredictionFileRepository:
@@ -44,5 +46,24 @@ class PredictionFileRepository:
                     matches=matches
                 )
             )
+
+        return sections
+
+    def load_featured(self, lang: str):
+
+        file = self.base_path / "free_predicts/stats/featured.php"
+        if not file.exists():
+            return []
+
+        sections = []
+        with open(file) as f:
+            raw = json.load(f)
+            for i, key in islice(enumerate(raw.keys()), 3):
+                sections.append(
+                    FeaturedSection(
+                        section_id=f"featured{i+1}",
+                        link=f"{c.BG_DOMAINS[lang]}/{c.controller_translations('free_predictions')[lang]}/{key}"
+                    )
+                )
 
         return sections
