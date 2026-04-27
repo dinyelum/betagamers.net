@@ -27,7 +27,7 @@ class PredictionStatusEvaluator:
         #     return True
 
         # no actual status
-        if all(status == "" for status in statuses):
+        if all(not status and status != '0' for status in statuses):
             return True
 
         return False
